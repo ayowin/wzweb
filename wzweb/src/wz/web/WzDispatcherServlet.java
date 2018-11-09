@@ -33,6 +33,7 @@ import wz.web.util.WzFreeMarkerUtil;
  * 				（说明：一般地，参数和返回值均为JSONObject或JSONArray，如有疑惑，参考WzRestfulAPITest示例。）
  * 				4、本框架提供了默认的文件上传框架 "WzFileUploadAPI" ，继承WzFileUploadAPI，实现JSONObject exec(String fieldName,String fileName,InputStream inputStream)函数即可，
  * 				参数分别为：表单域的name属性值，文件名，表单域的输入流。（如有疑惑，参考WzFileUploadAPITest示例。）
+ *				5、引入FreeMarker技术，以html文件做为模板，以servlet为模板加载真实的数据，并应答给客户端。（如有疑惑，参考WzFreeMarkerTestServlet示例。）
  * 		注：本框架的编写，参考了Spring MVC的restful设计、邵发老师的restful框架
  */
 
