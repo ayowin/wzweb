@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>wzweb测试</title>
+</head>
+<body>
+
+	<h1>欢迎访问首页</h1>
+	<h2>感谢使用wzweb框架</h2>
+
+	<!-- 以下是restful测试 -->
+	<button
+		style="background-color: #0095FF; width: 200px; height: 50px; font-size: 20px; border-radius: 5px;"
+		onclick="restfulTest()">restful测试</button>
+	<br>
+	<br>
+	<textarea rows="10" cols="30" placeholder="您即将发给服务器的json数据" id="requestContent"></textarea>
+	<h3 id="restfulResponse">来自restful的应答将显示在这里</h3>
+	
+	<!-- 以下是文件上传测试 -->
+	<form action = "fileupload.api" method = "post" enctype = "multipart/form-data">
+		<input type="text" name="textEdit" />
+		<br><br>
+        <input type = "file" name = "firstFile"/>
+        <br><br>
+        <input type = "file" name = "secondFile"/>
+        <br><br>
+        <input type = "submit" value = "文件上传" style="background-color: #0095FF; width: 200px; height: 50px; font-size: 20px; border-radius: 5px;" />
+    </form>
+
+	<script>
+		document.getElementById("requestContent").innerHTML="New text!";
+		
+		function restfulTest() 
+		{
+			console.log("---------------restfulTest-----------------");
+			//获取textarea的数据
+			var requestContent = document.getElementById("requestContent").value;
+			console.log(requestContent);
+			//发送ajax请求
+			var xmlhttp;
+			if (window.XMLHttpRequest)
+				xmlhttp=new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
+			else
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP"); // code for IE6, IE5
+			xmlhttp.open("POST", "restful.api", true);
+			xmlhttp.send(requestContent);
+			xmlhttp.onreadystatechange = function() 
+			{
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+				{
+					document.getElementById("restfulResponse").innerHTML = xmlhttp.responseText;
+				}
+			}
+		}
+	</script>
+
+</body>
+</html>

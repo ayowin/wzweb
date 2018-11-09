@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wzweb>
+	<!-- 示例，实际开发直接删掉即可 -->
+	<api name="weizai" class="wz.web.test.WzAPITest" />
+	<api name="restful" class="wz.web.test.WzRestfulAPITest" />
+	<api name="fileupload" class="wz.web.test.WzFileUploadAPITest" />
+</wzweb>
